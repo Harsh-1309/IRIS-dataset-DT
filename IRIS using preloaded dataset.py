@@ -1,11 +1,4 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[12]:
-
-
 #Importing required libraries
-
 import pandas as pd
 import numpy as np
 from sklearn.datasets import load_iris
@@ -13,17 +6,15 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import train_test_split
 
 #Loading the iris data
-
 data = load_iris()
 print('Classes to predict: ', data.target_names)
 
 #Extracting data attributes
 X = data.data
-
 ### Extracting target
 y = data.target
-
 print('Total number of samples in the data:', X.shape[0])
+
 #First four rows in the variable 'X'
 X[:4]
 
@@ -41,27 +32,13 @@ clf.fit(X_train, y_train)
 y_pred =  clf.predict(X_test)
 
 #Importing the accuracy metric from sklearn.metrics library
-
 from sklearn.metrics import accuracy_score
 print('Accuracy Score on train data: ', accuracy_score(y_true=y_train, y_pred=clf.predict(X_train)))
 print('Accuracy Score on test data: ', accuracy_score(y_true=y_test, y_pred=y_pred))
 
-#tuning the data to get more accuracy
+#Tuning the module to get more accuracy
 
 clf = DecisionTreeClassifier(criterion='entropy', min_samples_split=50)
 clf.fit(X_train, y_train)
 print('Accuracy Score on train data after tuning: ', accuracy_score(y_true=y_train, y_pred=clf.predict(X_train)))
 print('Accuracy Score on test data after tuning: ', accuracy_score(y_true=y_test, y_pred=clf.predict(X_test)))
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
